@@ -3,8 +3,8 @@ from discord import app_commands
 from discord.ext import commands
 import datetime
 import json
-
 import os
+from keep_alive import keep_alive
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
@@ -266,4 +266,5 @@ if __name__ == '__main__':
         print("ERROR: DISCORD_TOKEN not found in environment variables!")
         print("Please set your Discord bot token in the environment variables.")
     else:
+        keep_alive()  # Start HTTP server for UptimeRobot
         client.run(DISCORD_TOKEN)
